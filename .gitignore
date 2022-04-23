@@ -1,0 +1,5 @@
+#puede poner un archivo especifico
+boleta.txt
+
+#puede ignorar todos los archivos txt
+#*.txt

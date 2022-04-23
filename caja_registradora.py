@@ -50,4 +50,14 @@ for producto in boleta.get('detalle'):
     #[] capturar la clave del diccionario
     print(f'{producto["codigo_producto"]} {producto["nombre_producto"]} {producto["cantidad"]} {producto["precio_producto"]} {int(producto["cantidad"]) * int(producto["precio_producto"])}')
     total += int(producto["cantidad"]) * int(producto["precio_producto"])
-    print(f'Total a pagar: {total}')
+print(f'Total a pagar: {total}')
+
+#ESCRITURA DE ARCHIVO--> SIMULANDO IMPRESIÓN DE BOLETA
+#
+with open('boleta.txt', 'w') as archivo:
+    archivo.write(f'Cliente: {boleta.get("rut_cliente")}\n')
+    archivo.write(f'Correo: {boleta.get("correo_cliente")}\n')
+    archivo.write(f'Fecha: {boleta.get("fecha_actual")}\n')
+    for producto in boleta.get('detalle'):
+        archivo.write(f'{producto["codigo_producto"]} {producto["nombre_producto"]} {producto["cantidad"]} {producto["precio_producto"]} {int(producto["cantidad"]) * int(producto["precio_producto"])}\n')
+    archivo.write(f'Total a pagar: {total}')

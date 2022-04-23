@@ -3,3 +3,4 @@ boleta.txt
 
 #puede ignorar todos los archivos txt
 #*.txt
+*.log

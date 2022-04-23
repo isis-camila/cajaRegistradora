@@ -36,6 +36,18 @@ while estado:
     if respuesta == 'no':
         estado = False
 
-print(boleta)
+print('IMPRESIÓN DE LA BOLETA EN LA CONSOLA')
 
-#productos_en_compra: [codigo, nombre, categoria, cantidad, precio]
+#al trabajar con interporlación los datos ingresados
+# deben estar con doble comilla
+print(f'Cliente: {boleta.get("rut_cliente")}')
+print(f'Correo: {boleta.get("correo_cliente")}')
+print(f'Fecha: {boleta.get("fecha_actual")}')
+
+total=0
+#detalle = lista
+for producto in boleta.get('detalle'):
+    #[] capturar la clave del diccionario
+    print(f'{producto["codigo_producto"]} {producto["nombre_producto"]} {producto["cantidad"]} {producto["precio_producto"]} {int(producto["cantidad"]) * int(producto["precio_producto"])}')
+    total += int(producto["cantidad"]) * int(producto["precio_producto"])
+    print(f'Total a pagar: {total}')
